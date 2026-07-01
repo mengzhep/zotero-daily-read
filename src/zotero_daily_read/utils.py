@@ -44,7 +44,24 @@ def glob_match(path: str, pattern: str) -> bool:
         prefix, suffix = pattern.split('/**/', 1)
         return path.startswith(prefix + '/') and (path.endswith('/' + suffix) or ('/' + suffix + '/') in path or path == prefix + '/' + suffix)
     return fnmatch.fnmatch(path, pattern)
+    
+def load_review_log(path: str) -> dict:
+    if not os.path.exists(path):
+        return {"reviews": []}
+    try:
+        import json
+        with open(path, 'r', encoding='utf-8') as f:
+            return json.load(f)
+    except Exception as e:
+        logger.warning(f"Failed to load review log from {path}: {e}")
+        return {"reviews": []}
 
+
+def save_review_log(path: str, log: dict):
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    import json
+    with open(path, 'w', encoding='utf-8') as f:
+        json.dump(log, f, ensure_ascii=False, indent=2)
 
 def send_email(config: DictConfig, html: str):
     sender = config.email.sender
