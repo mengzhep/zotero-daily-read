@@ -1,0 +1,12 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+
+# Data
+# Keep review_log.json in repo so GitHub Actions can persist it
+!data/review_log.json
+
+# Hydra
+outputs/

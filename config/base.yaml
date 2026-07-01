@@ -1,0 +1,35 @@
+zotero:
+  user_id: ??? # User ID of your Zotero account.
+  api_key: ??? # An Zotero API key with read/write access (write is needed to add review tags).
+  include_path: null # A list of glob patterns marking the Zotero collections to select from. Example: ["研究生/**"]
+  ignore_path: null # A list of glob patterns marking collections to exclude. Example: ["archive/**"]
+
+email:
+  sender: ??? # The email account of the SMTP server. Example: abc@qq.com
+  receiver: ??? # The email account that receives the reading. Example: abc@outlook.com
+  smtp_server: ??? # SMTP server. Example: smtp.qq.com
+  smtp_port: ??? # SMTP port. Example: 465
+  sender_password: ??? # SMTP authorization code.
+
+llm:
+  api:
+    key: ??? # API Key of your LLM API. Example: sk-xxx
+    base_url: ??? # API URL of your LLM API. Example: https://api.openai.com/v1
+  language: English # Preferred language. Example: English, Chinese
+  generation_kwargs:
+    max_tokens: 16384
+    model: ??? # Example: gpt-4o-mini, kimi-for-coding
+
+daily_read:
+  mode: weighted_random # Selection mode: weighted_random, random, oldest_first
+  max_history_days: 30 # Papers reviewed within this many days are less likely to be selected
+  review_log_path: data/review_log.json # Path to store review history
+  zotero_tag_prefix: daily-read # Tag added to reviewed papers in Zotero
+  num_knowledge_cards: 5 # Number of Anki-style Q&A cards
+  num_thinking_questions: 2 # Number of thinking questions
+  include_related_papers: true # Whether to suggest related papers from Zotero
+  num_related_papers: 3 # Number of related papers to suggest
+
+executor:
+  debug: false
+  send_empty: false

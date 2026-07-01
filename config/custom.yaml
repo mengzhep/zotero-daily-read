@@ -1,0 +1,23 @@
+zotero:
+  user_id: ${oc.env:ZOTERO_ID}
+  api_key: ${oc.env:ZOTERO_KEY}
+  include_path: ["研究生/**", "研究生/**/**"] # 从研究生目录及其子目录中选取
+
+email:
+  sender: ${oc.env:SENDER}
+  receiver: ${oc.env:RECEIVER}
+  smtp_server: smtp.qq.com
+  smtp_port: 465
+  sender_password: ${oc.env:SENDER_PASSWORD}
+
+llm:
+  api:
+    key: ${oc.env:OPENAI_API_KEY}
+    base_url: ${oc.env:OPENAI_API_BASE}
+  language: Chinese # 启用中文输出
+  generation_kwargs:
+    max_tokens: 16384
+    model: kimi-for-coding
+
+executor:
+  debug: ${oc.env:DEBUG,null}
