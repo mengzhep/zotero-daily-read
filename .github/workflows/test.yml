@@ -35,4 +35,5 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add data/review_log.json
-          git diff --cached --quiet || git commit -m "Update review l
+          git diff --cached --quiet || git commit -m "Update review log [skip ci]"
+          git push
