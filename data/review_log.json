@@ -581,6 +581,12 @@
       "item_key": "DF2FIM3Z",
       "title": "Decoy State Quantum Key Distribution",
       "url": "https://link.aps.org/doi/10.1103/PhysRevLett.94.230504"
+    },
+    {
+      "date": "2026-11-01",
+      "item_key": "AN53DWMI",
+      "title": "Limitations on Practical Quantum Cryptography",
+      "url": "https://link.aps.org/doi/10.1103/PhysRevLett.85.1330"
     }
   ]
 }
